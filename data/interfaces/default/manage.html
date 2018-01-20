@@ -4,6 +4,9 @@
 	from headphones.helpers import checked
 %>
 <%def name="headerIncludes()">
+	<div id="paddingheader">
+		<h1 class="clearfix"><i class="fa fa-music"></i> Manage</h1>
+	</div>
 	<div id="subhead_container">
 		<div id="subhead_menu">
 			<a class="menu_link_edit" id="manage_albums" href="javascript:void(0)"><i class="fa fa-pencil"></i> Manage Albums</a>
@@ -25,13 +28,10 @@
 			%endif
 			<a class="menu_link_edit" href="manageUnmatched"><i class="fa fa-pencil"></i> Manage Unmatched</a>
 		</div>
-	</div>	
+	</div>
 </%def>
 
 <%def name="body()">
-	<div id="paddingheader">
-		<h1 class="clearfix"><i class="fa fa-music"></i> Manage</h1>
-	</div>
 	<div id="tabs">
 		<ul>
 			<li><a href="#tabs-1">Scan Music Library</a></li>
@@ -45,11 +45,11 @@
 					<legend>Scan Music Library</legend>
 					<p><strong>Where do you keep your music?</strong></p>
 					<p>You can put in any directory, and it will scan for audio files in that folder
-					(including all subdirectories). <br/><small>For example: '/Users/name/Music'</small></p>	
+					(including all subdirectories). <br/><small>For example: '/Users/name/Music'</small></p>
 					<p>
 					It may take a while depending on how many files you have. You can navigate away from the page<br />
 					as soon as you click 'Save changes'
-					</p>	
+					</p>
 					<br/>
 					<div class="row">
 								<label for="">Path to directory</label>
@@ -60,13 +60,13 @@
 						(this.value==this.defaultValue) this.value='';" name="path" size="70" />
 					%endif
 					</div>
-					<div class="row checkbox"> 
+					<div class="row checkbox">
 					<input type="checkbox" name="libraryscan" id="libraryscan" value="1" ${checked(headphones.CONFIG.LIBRARYSCAN)}><label>Automatically scan library</label>
 					</div>
-					<div class="row checkbox"> 
+					<div class="row checkbox">
 					<input type="checkbox" name="autoadd" id="autoadd" value="1" ${checked(headphones.CONFIG.AUTO_ADD_ARTISTS)}><label>Auto-add new artists</label>
 					</div>
-								
+
 				</fieldset>
 				<br>
 				<input type="button" value="Save Changes and Scan" onclick="addScanAction();doAjaxCall('musicScan',$(this),'tabs',true);return false;" data-success="Changes saved. Library will be scanned">
@@ -78,7 +78,7 @@
 		<form action="importLastFM" method="GET" id="importLastFM">
 			<fieldset>
 			<legend>Import Last.FM Artists</legend>
-			<p>Enter the username whose artists you want to import:</p>		
+			<p>Enter the username whose artists you want to import:</p>
 			<br/>
 			<div class="row">
 				<label for="">Username</label>
@@ -116,7 +116,7 @@
     </div>
 
 
-	
+
 	<div id="tabs-3" class="configtable">
 		<fieldset>
 			<legend>Force Search</legend>
@@ -128,7 +128,7 @@
 					<div id="emptyartistdialog" title="Confirm Artist Deletion" style="display:none" class="configtable">
 					    %if emptyArtists:
 						<h3>The following artists will be deleted:</h3>
-						
+
 						%for emptyArtist in emptyArtists:
 							<p>${emptyArtist['ArtistName']}</p>
 						%endfor
@@ -174,7 +174,7 @@
 
 		</div>
 		</fieldset>
-		
+
 	</div>
 	<div id="dialog-confirm"></div>
 
@@ -234,7 +234,7 @@
 		        alert("Rejected");
 		    }
 		}
-		
+
 		function initThisPage() {
 			$('#manage_albums').click(function() {
 				$('#dialog').dialog();

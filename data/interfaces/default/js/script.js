@@ -1,5 +1,5 @@
 function getThumb(imgElem,id,type) {
-	
+
 	if ( type == 'artist' ) {
 		var thumbURL = "getThumb?ArtistID=" + id;
 		// var imgURL = "getArtwork?ArtistID=" + id;
@@ -7,7 +7,7 @@ function getThumb(imgElem,id,type) {
 		var thumbURL = "getThumb?AlbumID=" + id;
 		// var imgURL = "getArtwork?AlbumID=" + id;
 	}
-	// Get Data from the cache by Artist ID 	
+	// Get Data from the cache by Artist ID
 	$.ajax({
 		url: thumbURL,
 		cache: true,
@@ -25,13 +25,13 @@ function getThumb(imgElem,id,type) {
 }
 
 function getArtwork(imgElem,id,name,type) {
-	
+
 	if ( type == 'artist' ) {
 		var artworkURL = "getArtwork?ArtistID=" + id;
 	} else {
 		var artworkURL = "getArtwork?AlbumID=" + id;
 	}
-	// Get Data from the cache by Artist ID 	
+	// Get Data from the cache by Artist ID
 	$.ajax({
 		url: artworkURL,
 		cache: true,
@@ -49,13 +49,13 @@ function getArtwork(imgElem,id,name,type) {
 }
 
 function getInfo(elem,id,type) {
-	
+
 	if ( type == 'artist' ) {
 		var infoURL = "getInfo?ArtistID=" + id;
 	} else {
 		var infoURL = "getInfo?AlbumID=" + id;
 	}
-	// Get Data from the cache by ID 	
+	// Get Data from the cache by ID
 	$.ajax({
 		url: infoURL,
 		cache: true,
@@ -112,7 +112,7 @@ function getImageLinks(elem,id,type,unveil) {
 function initHeader() {
 	//settings
 	var header = $("#container header");
-	var fadeSpeed = 100, fadeTo = 0.5, topDistance = 20;
+	var fadeSpeed = 100, fadeTo = 0.95, topDistance = 20;
 	var topbarME = function() { $(header).fadeTo(fadeSpeed,1); }, topbarML = function() { $(header).fadeTo(fadeSpeed,fadeTo); };
 	var inside = false;
 	//do
@@ -134,25 +134,25 @@ function initHeader() {
 			inside = false;
 		}
 	});
-	
+
 }
 
 function initConfigCheckbox(elem) {
-	var config = $(elem).parent().next();	
+	var config = $(elem).parent().next();
 	if ( $(elem).is(":checked") ) {
 		config.show();
 	} else {
 		config.hide();
 	}
 	$(elem).click(function(){
-		var config = $(this).parent().next();	
+		var config = $(this).parent().next();
 		if ( $(this).is(":checked") ) {
 			config.slideDown();
 		} else {
 			config.slideUp();
 		}
 	});
-}     
+}
 function initActions() {
 	$("#subhead_menu #menu_link_refresh").button();
 	$("#subhead_menu #menu_link_edit").button();
@@ -201,7 +201,7 @@ function refreshLoadArtist() {
 						refreshLoadArtist();
 					},3000);
 				}
-			});	
+			});
 		});
 	}
 }
@@ -234,10 +234,10 @@ function showMsg(msg,loader,timeout,ms) {
 		setTimeout(function(){
 			message.fadeOut(function(){
 				$(this).remove();
-				feedback.fadeOut();					
+				feedback.fadeOut();
 			});
 		},ms);
-	} 
+	}
 }
 
 function showArtistMsg(msg) {
@@ -265,7 +265,7 @@ function doAjaxCall(url,elem,reload,form) {
 	} else {
 		feedback.removeAttr("style");
 	}
-	
+
 	feedback.fadeIn();
 	// Get Form data
 	var formID = "#"+url;
@@ -279,17 +279,17 @@ function doAjaxCall(url,elem,reload,form) {
 	if (typeof dataSucces === "undefined") {
 		// Standard Message when variable is not set
 		var dataSucces = "Success!";
-	} 
+	}
 	// Data Errror Message
 	var dataError = $(elem).data('error');
 	if (typeof dataError === "undefined") {
 		// Standard Message when variable is not set
 		var dataError = "There was an error";
-	} 	
+	}
 	// Get Success & Error message from inline data, else use standard message
 	var succesMsg = $("<div class='msg'><i class='fa fa-check'></i> " + dataSucces + "</div>");
 	var errorMsg = $("<div class='msg'><i class='fa fa-exclamation-triangle'></i> " + dataError + "</div>");
-	
+
 	// Check if checkbox is selected
 	if ( form ) {
 		if ( $('td#select input[type=checkbox]').length > 0 && !$('td#select input[type=checkbox]').is(':checked') || $('#importLastFM #username:visible').length > 0 && $("#importLastFM #username" ).val().length === 0 ) {
@@ -300,14 +300,14 @@ function doAjaxCall(url,elem,reload,form) {
 					$(this).remove();
 					feedback.fadeOut(function(){
 						feedback.removeClass('error');
-					});					
+					});
 				})
 				$(formID + " select").children('option[disabled=disabled]').attr('selected','selected');
 			},2000);
 			return false;
-		} 
-	} 
-	
+		}
+	}
+
 	// Ajax Call
 	$.ajax({
 	  url: url,
@@ -325,7 +325,7 @@ function doAjaxCall(url,elem,reload,form) {
 	  			$(this).remove();
 	  			feedback.fadeOut(function(){
 	  				feedback.removeClass('error')
-	  			});	  			
+	  			});
 	  		})
 	  	},2000);
 	  },
@@ -383,4 +383,17 @@ function initFancybox() {
 
 $(document).ready(function(){
 	initHeader();
+
+	$("#mobilenav").on("click",function(){
+		$("body").toggleClass("mobile-open");
+	});
+
+	$(window).scroll(function() {
+		var top = $(document).scrollTop();
+		if(top >= 100) {
+			$("body").addClass("sticky");
+		} else {
+			$("body").removeClass("sticky");
+		}
+	});
 });

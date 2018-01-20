@@ -5,6 +5,9 @@
 %>
 
 <%def name="headerIncludes()">
+    <div id="paddingheader">
+        <h1 class="clearfix"><i class="fa fa-gear"></i> Settings</h1>
+    </div>
     <div id="subhead_container">
         <div id="subhead_menu">
             <a id="menu_link_shutdown" href="shutdown"><i class="fa fa-power-off"></i> Shut Down</a>
@@ -14,9 +17,6 @@
 </%def>
 
 <%def name="body()">
-    <div id="paddingheader">
-        <h1 class="clearfix"><i class="fa fa-gear"></i> Settings</h1>
-    </div>
     <form action="configUpdate" method="post" class="form" id="configUpdate">
         <div id="tabs">
             <ul>
@@ -416,7 +416,7 @@
                                 <div class="row">
                                     <label>Deluge SSL Certificate</label>
                                     <input type="text" name="deluge_cert" value="${config['deluge_cert']}" size="30">
-                                    <small>Path to the certificate file. Make sure to use a valid certificate ("Issued To" field must match 
+                                    <small>Path to the certificate file. Make sure to use a valid certificate ("Issued To" field must match
                                         hostname) which is <em>not</em> the case with the default certificate. Path is usually <span style="font-family: monospace;">%appdata%\deluge\ssl</span> on Windows, <span style="font-family: monospace;">~/.config/deluge/ssl/</span> on Linux. Leave this blank if you are using a self-signed certificate.</small>
                                 </div>
                                 <div class="row">
@@ -792,7 +792,7 @@
                                         </div>
                                     </div>
                                 </fieldset>
-								
+
                                 <fieldset>
                                     <div class="row checkbox left">
                                         <input id="use_tquattrecentonze" type="checkbox" class="bigcheck" name="use_tquattrecentonze" value="1" ${config['use_tquattrecentonze']} /><label for="use_tquattrecentonze"><span class="option">t411</span></label>

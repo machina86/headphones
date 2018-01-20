@@ -4,74 +4,74 @@
 	COLUMNS STUFF
 	https://css-tricks.com/guide-responsive-friendly-css-columns/
 */
-html,
+abbr,
+address,
+article,
+aside,
+audio,
+b,
+blockquote,
 body,
+canvas,
+caption,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
 div,
-span,
-object,
-iframe,
+dl,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-p,
-blockquote,
-pre,
-abbr,
-address,
-cite,
-code,
-del,
-dfn,
-em,
+header,
+hgroup,
+html,
+i,
+iframe,
 img,
 ins,
 kbd,
-q,
-samp,
-small,
-strong,
-sub,
-sup,
-var,
-b,
-i,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
 label,
 legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
+li,
+mark,
 menu,
 nav,
+object,
+ol,
+p,
+pre,
+q,
+samp,
 section,
+small,
+span,
+strong,
+sub,
 summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
 time,
-mark,
-audio,
+tr,
+ul,
+var,
 video {
   border: 0;
   font: inherit;
@@ -79,6 +79,7 @@ video {
   margin: 0;
   padding: 0;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
 article,
 aside,
@@ -156,8 +157,8 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
-small,
-.small {
+.small,
+small {
   font-size: xx-small;
 }
 .configtable legend {
@@ -173,6 +174,17 @@ small,
 .configtable td {
   padding-right: 15px;
   width: 50%;
+}
+@media screen and (max-width: 768px) {
+  .configtable td {
+    padding: 0;
+    width: 100%;
+    display: block;
+  }
+  .configtable tr td:last-child {
+    border-left: none;
+    padding-left: 0;
+  }
 }
 .config legend {
   font-size: larger;
@@ -231,9 +243,9 @@ small,
 .config .option input {
   margin-right: 5px;
 }
-.config .option input[type=text],
+.config .option input[type=number],
 .config .option input[type=password],
-.config .option input[type=number] {
+.config .option input[type=text] {
   border: 1px solid #DDD;
   border-top: 1px solid #CDCDCD;
   -moz-box-shadow: inset 0 1px 1px #e0e0e0;
@@ -291,7 +303,7 @@ table th {
   -webkit-box-shadow: 1px 0 0 #FAFAFA;
   -o-box-shadow: 1px 0 0 #FAFAFA;
   box-shadow: 1px 0 0 #FAFAFA;
-  text-shadow: 1px 1px 0 #FFFFFF ;
+  text-shadow: 1px 1px 0 #FFFFFF;
 }
 table th input[type="checkbox"] {
   vertical-align: middle;
@@ -303,8 +315,8 @@ table th:first-child {
   -o-box-shadow: none;
   box-shadow: none;
 }
-table th.sorting_desc,
-table th.sorting_asc {
+table th.sorting_asc,
+table th.sorting_desc {
   background-image: -moz-linear-gradient(#FAFBFD, #DCE6EF) !important;
   background-image: linear-gradient(#FAFBFD, #DCE6EF) !important;
   background-image: -webkit-linear-gradient(#FAFBFD, #DCE6EF) !important;
@@ -319,11 +331,22 @@ table td {
 table td a {
   color: #666666;
 }
-select,
+button,
 input,
-textarea,
-button {
+select,
+textarea {
   font-size: 99%;
+}
+select {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #4F4F4F;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  color: #fff;
+  padding: 3px 10px;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
 }
 textarea {
   overflow: auto;
@@ -350,11 +373,11 @@ textarea:invalid {
 input[type="checkbox"] {
   vertical-align: bottom;
 }
-label,
+button,
 input[type="button"],
-input[type="submit"],
 input[type="image"],
-button {
+input[type="submit"],
+label {
   cursor: pointer;
 }
 button,
@@ -367,11 +390,11 @@ button {
   overflow: visible;
   width: auto;
 }
-input,
-select,
-form .checkbox input,
+#artist_table td#have,
 .configtable td#middle,
-#artist_table td#have {
+form .checkbox input,
+input,
+select {
   vertical-align: middle;
 }
 input[type="radio"] {
@@ -383,8 +406,8 @@ input[type="radio"] {
   color: #fff;
   text-shadow: none;
 }
-input[type=submit],
-input[type=button] {
+input[type=button],
+input[type=submit] {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -400,8 +423,8 @@ input[type=button] {
   text-decoration: none;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
 }
-form legend,
-form h2 {
+form h2,
+form legend {
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -437,8 +460,8 @@ form .row label.inline {
 form .row input {
   margin-right: 5px;
 }
-form .row input[type=text],
-form .row input[type=password] {
+form .row input[type=password],
+form .row input[type=text] {
   border: 1px solid #DDD;
   border-top: 1px solid #CDCDCD;
   -moz-box-shadow: 0 1px 0 #f1f1f1;
@@ -499,15 +522,38 @@ form .checkbox small {
   margin: 0 !important;
   width: auto;
 }
-ul,
-ol {
+@media screen and (max-width: 768px) {
+  form .row label {
+    width: 100%;
+  }
+  form .row small {
+    margin-left: 0;
+  }
+  form .row.checkbox label {
+    display: inline-block;
+    width: auto;
+    float: none;
+  }
+  input[size="50"] {
+    width: 100%;
+  }
+}
+ol,
+ul {
   margin-left: 2em;
 }
 ol {
   list-style-type: decimal;
 }
-nav ul,
-nav li {
+#mobilenav {
+  display: none;
+  float: right;
+  font-size: 3rem;
+  margin-top: 3px;
+  margin-right: 10px;
+}
+nav li,
+nav ul {
   list-style: none;
   list-style-image: none;
   margin: 0;
@@ -522,20 +568,21 @@ ul#nav {
   -o-box-shadow: -1px 0 0 #e0e0e0;
   box-shadow: -1px 0 0 #e0e0e0;
   height: 58px;
+  width: calc(60% - 64px);
+  text-align: right;
 }
 ul#nav li {
-  display: block;
-  float: left;
+  display: inline-block;
   font-size: 18px;
   font-weight: bold;
-  margin: 8px 0 0 0;
+  margin: 8px -2px 0;
   text-align: center;
 }
 ul#nav li a {
   color: #343434;
   display: block;
   padding: 7px 15px;
-  text-shadow: 1px 1px 0px #FFF;
+  text-shadow: 1px 1px 0 #FFF;
   text-transform: capitalize;
   border: 1px solid transparent;
   font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
@@ -570,12 +617,74 @@ ul#nav li a.config {
 }
 ul#nav li a.config i {
   position: relative;
-  top: 0px;
+  top: 0;
   left: -6px;
 }
 ul#nav li a.log {
   font-size: 13px;
   padding: 10px 15px 11px;
+}
+@media screen and (max-width: 992px) {
+  #mobilenav {
+    display: block;
+  }
+  #mobilenav:hover {
+    cursor: pointer;
+  }
+  ul#nav {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 58px;
+    left: 0;
+    padding: 15px;
+    background: #E7E7E7;
+    -moz-box-shadow: 4px 0px 0 #e0e0e0;
+    -webkit-box-shadow: 4px 0px 0 #e0e0e0;
+    -o-box-shadow: 4px 0px 0 #e0e0e0;
+    box-shadow: 4px 0px 0 #e0e0e0;
+    border-top: 1px solid #FAFAFA;
+  }
+  ul#nav li {
+    width: 100%;
+    margin: 5px 0;
+  }
+  ul#nav li a.config {
+    height: auto;
+    width: auto;
+  }
+  ul#nav li a.config i {
+    left: 0;
+  }
+  .mobile-open {
+    overflow: hidden;
+  }
+  .mobile-open header {
+    opacity: 1 !important;
+  }
+  .mobile-open ul#nav {
+    display: block;
+  }
+}
+@media screen and (max-width: 992px) {
+  .ui-tabs .ui-tabs-nav {
+    text-align: center;
+  }
+  .ui-tabs .ui-tabs-nav li {
+    display: inline-block;
+    float: none;
+    border: none;
+    border-radius: 6px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .ui-tabs .ui-tabs-panel {
+    padding: 1em 15px;
+  }
+  .ui-button {
+    margin-bottom: 5px;
+  }
 }
 header {
   background-image: -moz-linear-gradient(#FAFAFA, #E7E7E7) !important;
@@ -598,7 +707,8 @@ header .wrapper {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  width: 990px;
+  max-width: 990px;
+  width: 100%;
 }
 header #logo {
   float: left;
@@ -606,11 +716,13 @@ header #logo {
   position: relative;
   top: -3px;
   margin-left: 10px;
+  width: 64px;
 }
 footer {
   display: table;
-  margin: 60px auto 50px auto;
-  width: 960px;
+  margin: 60px auto 50px;
+  width: 100%;
+  max-width: 960px;
   padding-top: 10px;
   border-top: 1px solid #EEE;
 }
@@ -618,7 +730,8 @@ footer {
   line-height: 24px;
   margin: 0 auto;
   padding: 75px 0 0;
-  width: 960px;
+  max-width: 960px;
+  width: 100%;
 }
 .message {
   -moz-border-radius: 10px;
@@ -781,20 +894,25 @@ footer {
   position: relative;
   margin-right: 3px;
 }
+#subhead {
+  position: relative;
+  margin-bottom: 15px;
+  overflow: hidden;
+  min-height: 33px;
+}
 #subhead .back {
   float: left;
   margin-top: -25px;
 }
 #subhead #subhead_container {
   float: right;
-  height: 30px;
   list-style-type: none;
   width: 100%;
   z-index: 998;
 }
 #subhead #subhead_container #subhead_menu {
   float: right;
-  margin-top: 0px;
+  margin-top: 0;
   position: relative;
   z-index: 99;
 }
@@ -824,6 +942,20 @@ footer {
   position: relative;
   z-index: 99;
 }
+@media screen and (max-width: 768px) {
+  #subhead #subhead_container {
+    float: none;
+    text-align: center;
+    margin-top: 50px;
+  }
+  #subhead #subhead_container #subhead_menu {
+    display: inline-block;
+    float: none;
+  }
+  #subhead ~ .title {
+    text-align: center;
+  }
+}
 div#searchbar {
   border-left: 1px solid #FAFAFA;
   -moz-box-shadow: -1px 0 0 #e0e0e0;
@@ -831,9 +963,10 @@ div#searchbar {
   -o-box-shadow: -1px 0 0 #e0e0e0;
   box-shadow: -1px 0 0 #e0e0e0;
   padding: 15px 0 15px 20px;
-  position: absolute;
-  left: 90px;
+  position: relative;
+  float: left;
   top: 2px;
+  width: calc(40% - 64px);
 }
 div#searchbar input[type=text] {
   border: 1px solid #DDD;
@@ -856,7 +989,7 @@ div#searchbar input[type=text] {
   line-height: normal;
   margin-right: 5px;
   padding: 4px 5px 4px 25px;
-  width: 185px;
+  width: 40%;
 }
 div#searchbar .mini-icon {
   color: #999;
@@ -864,6 +997,22 @@ div#searchbar .mini-icon {
   display: block;
   margin-left: 9px;
   margin-top: 7px;
+}
+@media screen and (max-width: 992px) {
+  div#searchbar {
+    width: calc(100% - 154px);
+  }
+}
+@media screen and (max-width: 540px) {
+  div#searchbar {
+    width: calc(100% - 155px);
+    padding: 0 20px;
+    text-align: right;
+  }
+  div#searchbar input[type=text] {
+    width: calc(100% - 33px);
+    margin-bottom: 4px;
+  }
 }
 .table_wrapper {
   _height: 302px;
@@ -885,12 +1034,12 @@ div#searchbar .mini-icon {
   zoom: 1px;
 }
 #paddingheader {
-  position: relative;
-  top: -25px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 #paddingheader h1 {
   line-height: 33px;
-  width: 450px;
 }
 #paddingheader h1 img {
   float: left;
@@ -900,6 +1049,12 @@ div#nopaddingheader {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+}
+@media screen and (max-width: 768px) {
+  #paddingheader {
+    width: 100%;
+    text-align: center;
+  }
 }
 div#artistheader {
   margin-top: 50px;
@@ -949,7 +1104,7 @@ div#artistheader h2 a {
 }
 #artistCalendar {
   list-style-type: none;
-  margin: 0px;
+  margin: 0;
   display: block;
   background: #FEF2EB;
   padding: 10px;
@@ -992,8 +1147,8 @@ div#artistheader h2 a {
   min-width: 300px;
   text-align: left;
 }
-#artist_table th#status,
-#artist_table th#albumart {
+#artist_table th#albumart,
+#artist_table th#status {
   min-width: 50px;
   text-align: left;
 }
@@ -1019,6 +1174,44 @@ div#artistheader h2 a {
   position: relative;
   top: 25px;
   display: inline-block;
+}
+@media screen and (max-width: 768px) {
+  #artist_table {
+    display: block;
+    width: 100% !important;
+    padding: 20px 0;
+  }
+  #artist_table thead,
+  #artist_table tbody {
+    display: block;
+  }
+  #artist_table thead tr,
+  #artist_table tbody tr {
+    display: block;
+  }
+  #artist_table thead tr th,
+  #artist_table tbody tr th,
+  #artist_table thead tr td,
+  #artist_table tbody tr td {
+    display: block;
+    width: 100% !important;
+    min-width: 1px !important;
+    text-align: center !important;
+    border-bottom: 0;
+  }
+  #artist_table thead tr th #artistImg,
+  #artist_table tbody tr th #artistImg,
+  #artist_table thead tr td #artistImg,
+  #artist_table tbody tr td #artistImg {
+    display: inline-block;
+    float: none;
+  }
+  #artist_table thead tr.odd,
+  #artist_table tbody tr.odd,
+  #artist_table thead tr.even,
+  #artist_table tbody tr.even {
+    border-bottom: 1px solid #ccc;
+  }
 }
 #albumheader {
   margin-top: 50px;
@@ -1076,8 +1269,6 @@ div#artistheader h2 a {
 .nopad {
   margin-bottom: 0 !important;
   margin-top: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
   padding: 0 !important;
 }
 #album_table {
@@ -1114,8 +1305,8 @@ div#artistheader h2 a {
   min-width: 150px;
   text-align: center;
 }
-#album_table th#bitrate,
-#album_table th#albumformat {
+#album_table th#albumformat,
+#album_table th#bitrate {
   min-width: 60px;
   text-align: center;
 }
@@ -1128,12 +1319,12 @@ div#artistheader h2 a {
   vertical-align: middle;
   font-size: larger;
 }
-#album_table td#albumname,
-#album_table td#reldate,
-#album_table td#type,
-#album_table td#bitrate,
 #album_table td#albumformat,
+#album_table td#albumname,
+#album_table td#bitrate,
+#album_table td#reldate,
 #album_table td#score,
+#album_table td#type,
 #album_table td#wantlossless {
   text-align: center;
 }
@@ -1153,6 +1344,36 @@ div#artistheader h2 a {
 }
 #album_table td#status a#wantlossless {
   white-space: nowrap;
+}
+@media screen and (max-width: 768px) {
+  #album_table {
+    display: block;
+    width: 100% !important;
+  }
+  #album_table thead,
+  #album_table tbody {
+    display: block;
+  }
+  #album_table thead tr,
+  #album_table tbody tr {
+    display: block;
+  }
+  #album_table thead tr th,
+  #album_table tbody tr th,
+  #album_table thead tr td,
+  #album_table tbody tr td {
+    display: block;
+    width: 100% !important;
+    min-width: 1px !important;
+    text-align: center !important;
+    border-bottom: 0;
+  }
+  #album_table thead tr.odd,
+  #album_table tbody tr.odd,
+  #album_table thead tr.even,
+  #album_table tbody tr.even {
+    border-bottom: 1px solid #ccc;
+  }
 }
 #manageheader {
   margin-top: 45px;
@@ -1208,6 +1429,36 @@ div#artistheader h2 a {
 #downloads_table th#kind {
   min-width: 80px;
 }
+@media screen and (max-width: 768px) {
+  #track_table {
+    display: block;
+    width: 100% !important;
+  }
+  #track_table thead,
+  #track_table tbody {
+    display: block;
+  }
+  #track_table thead tr,
+  #track_table tbody tr {
+    display: block;
+  }
+  #track_table thead tr th,
+  #track_table tbody tr th,
+  #track_table thead tr td,
+  #track_table tbody tr td {
+    display: block;
+    width: 100% !important;
+    min-width: 1px !important;
+    text-align: center !important;
+    border-bottom: 0;
+  }
+  #track_table thead tr.odd,
+  #track_table tbody tr.odd,
+  #track_table thead tr.even,
+  #track_table tbody tr.even {
+    border-bottom: 1px solid #ccc;
+  }
+}
 #history_table {
   background-color: #FFF;
   font-size: 13px;
@@ -1231,6 +1482,36 @@ div#artistheader h2 a {
   text-align: center;
   vertical-align: middle;
 }
+@media screen and (max-width: 768px) {
+  #history_table {
+    display: block;
+    width: 100% !important;
+  }
+  #history_table thead,
+  #history_table tbody {
+    display: block;
+  }
+  #history_table thead tr,
+  #history_table tbody tr {
+    display: block;
+  }
+  #history_table thead tr th,
+  #history_table tbody tr th,
+  #history_table thead tr td,
+  #history_table tbody tr td {
+    display: block;
+    width: 100% !important;
+    min-width: 1px !important;
+    text-align: center !important;
+    border-bottom: 0;
+  }
+  #history_table thead tr.odd,
+  #history_table tbody tr.odd,
+  #history_table thead tr.even,
+  #history_table tbody tr.even {
+    border-bottom: 1px solid #ccc;
+  }
+}
 #log_table {
   background-color: #FFF;
 }
@@ -1249,6 +1530,36 @@ div#artistheader h2 a {
 #log_table td {
   font-size: 12px;
   padding: 2px 10px;
+}
+@media screen and (max-width: 768px) {
+  #log_table {
+    display: block;
+    width: 100% !important;
+  }
+  #log_table thead,
+  #log_table tbody {
+    display: block;
+  }
+  #log_table thead tr,
+  #log_table tbody tr {
+    display: block;
+  }
+  #log_table thead tr th,
+  #log_table tbody tr th,
+  #log_table thead tr td,
+  #log_table tbody tr td {
+    display: block;
+    width: 100% !important;
+    min-width: 1px !important;
+    text-align: center !important;
+    border-bottom: 0;
+  }
+  #log_table thead tr.odd,
+  #log_table tbody tr.odd,
+  #log_table thead tr.even,
+  #log_table tbody tr.even {
+    border-bottom: 1px solid #ccc;
+  }
 }
 #searchresults_table th {
   font-size: larger;
@@ -1333,31 +1644,50 @@ div#artistheader h2 a {
   margin: 2px 5px 2px 0;
   padding: 1px;
   width: 100px;
+  text-align: center;
+  position: relative;
 }
-.progress-container > div {
+.progress-container .progress-bar {
   background-image: -moz-linear-gradient(#A3E532, #90CC2A) !important;
   background-image: linear-gradient(#A3E532, #90CC2A) !important;
   background-image: -webkit-linear-gradient(#A3E532, #90CC2A) !important;
   background-image: -o-linear-gradient(#A3E532, #90CC2A) !important;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#A3E532, endColorstr=#90CC2A) !important;
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#A3E532, endColorstr=#90CC2A) !important;
-  height: 14px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 12px;
 }
 .havetracks {
   font-size: 11px;
-  line-height: normal;
-  margin-left: 36px;
+  line-height: 1;
   padding-bottom: 3px;
   vertical-align: middle;
+  position: relative;
+  z-index: 50;
+}
+@media screen and (max-width: 768px) {
+  .progress-container {
+    float: none;
+    display: inline-block;
+  }
 }
 #version {
   color: #999;
   font-size: 10px;
   position: relative;
   z-index: 999;
-  margin: 0px auto;
+  margin: 0 auto;
   text-align: center;
   width: 400px;
+}
+@media screen and (max-width: 768px) {
+  #version {
+    width: 100%;
+    display: block;
+    float: left;
+  }
 }
 #donate {
   float: left;
@@ -1387,7 +1717,7 @@ div#artistheader h2 a {
   border-radius: 5px 0 0 0;
   bottom: 0;
   display: none;
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   position: fixed;
   right: 0;
 }
@@ -1515,8 +1845,8 @@ div#artistheader h3 span {
   text-align: center;
   vertical-align: middle;
 }
-#history_table td#status,
-#history_table td#action {
+#history_table td#action,
+#history_table td#status {
   font-size: 14px;
   text-align: center;
   vertical-align: middle;
@@ -1590,6 +1920,68 @@ div#artistheader h3 span {
   text-align: center;
   vertical-align: middle;
 }
+@media screen and (max-width: 768px) {
+  #wanted_table,
+  #upcoming_table {
+    display: block;
+    width: 100% !important;
+  }
+  #wanted_table thead,
+  #upcoming_table thead,
+  #wanted_table tbody,
+  #upcoming_table tbody {
+    display: block;
+  }
+  #wanted_table thead tr,
+  #upcoming_table thead tr,
+  #wanted_table tbody tr,
+  #upcoming_table tbody tr {
+    display: block;
+  }
+  #wanted_table thead tr th,
+  #upcoming_table thead tr th,
+  #wanted_table tbody tr th,
+  #upcoming_table tbody tr th,
+  #wanted_table thead tr td,
+  #upcoming_table thead tr td,
+  #wanted_table tbody tr td,
+  #upcoming_table tbody tr td {
+    display: block;
+    width: 100% !important;
+    min-width: 1px !important;
+    text-align: center !important;
+    border-bottom: 0;
+  }
+  #wanted_table thead tr.odd,
+  #upcoming_table thead tr.odd,
+  #wanted_table tbody tr.odd,
+  #upcoming_table tbody tr.odd,
+  #wanted_table thead tr.even,
+  #upcoming_table thead tr.even,
+  #wanted_table tbody tr.even,
+  #upcoming_table tbody tr.even {
+    border-bottom: 1px solid #ccc;
+  }
+  #markalbum {
+    width: 100%;
+    text-align: center;
+  }
+  .sticky #markalbum {
+    background-image: -moz-linear-gradient(#E7E7E7, #FAFAFA) !important;
+    background-image: linear-gradient(#E7E7E7, #FAFAFA) !important;
+    background-image: -webkit-linear-gradient(#E7E7E7, #FAFAFA) !important;
+    background-image: -o-linear-gradient(#E7E7E7, #FAFAFA) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E7E7E7, endColorstr=#FAFAFA) !important;
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E7E7E7, endColorstr=#FAFAFA) !important;
+    position: fixed;
+    top: 58px !important;
+    left: 0;
+    z-index: 100;
+    padding: 5px 0;
+    opacity: 0.95;
+    border-bottom: 1px solid #ccc;
+  }
+}
 table tr td#status a {
   color: #4183C4;
 }
@@ -1602,3 +1994,4 @@ table tr td#status a {
 .ie7 legend {
   margin-left: -7px;
 }
+/*# sourceMappingURL=style.css.map */

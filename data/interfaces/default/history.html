@@ -5,6 +5,9 @@
 %>
 
 <%def name="headerIncludes()">
+	<div id="paddingheader">
+		<h1 class="clearfix"><i class="fa fa-calendar"></i> History</h1>
+	</div>
 	<div id="subhead_container">
 		<div id="subhead_menu">
 			<a id="menu_link_delete" href="javascript:void(0)" onclick="doAjaxCall('clearhistory?type=all',$(this),'table')" data-success="All History cleared"><i class="fa fa-trash-o"></i> Clear All History</a>
@@ -17,9 +20,6 @@
 </%def>
 
 <%def name="body()">
-	<div id="paddingheader">
-		<h1 class="clearfix"><i class="fa fa-calendar"></i> History</h1>
-	</div>
 	<table class="display" id="history_table">
 		<thead>
 			<tr>

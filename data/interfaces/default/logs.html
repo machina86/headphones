@@ -4,6 +4,9 @@
 %>
 
 <%def name="headerIncludes()">
+		<div id="paddingheader">
+			<h1 class="clearfix"><i class="fa fa-flag"></i> Logs</h1>
+		</div>
     <div id="subhead_container">
         <div id="subhead_menu">
             <a class="menu_link_edit" href="clearLogs"><i class="fa fa-trash-o"></i> Clear log</a>
@@ -13,9 +16,6 @@
 </%def>
 
 <%def name="body()">
-	<div id="paddingheader">
-		<h1 class="clearfix"><i class="fa fa-flag"></i> Logs</h1>
-	</div>
 	<table class="display" id="log_table">
 		<thead>
 			<tr>

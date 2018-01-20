@@ -141,7 +141,7 @@
 					[<a id="wantlossless" href="javascript:void(0)" onclick="doAjaxCall('queueAlbum?AlbumID=${album['AlbumID']}&ArtistID=${album['ArtistID']}&lossless=True', $(this),'table')" data-success="Retrying the same lossless version of '${album['AlbumTitle']}'">retry lossless</a>]
 				%endif
 				</td>
-				<td id="have"><span title="${percent}"><span><div class="progress-container"><div style="width:${percent}%"><div class="havetracks">${havetracks}/${totaltracks}</div></div></div></td>
+				<td id="have"><span title="${percent}"><span><div class="progress-container"><div class="progress-bar" style="width:${percent}%"></div><div class="havetracks">${havetracks}/${totaltracks}</div></div></td>
 				<td id="bitrate">${bitrate}</td>
 				<td id="albumformat">${albumformat}</td>
 			</tr>

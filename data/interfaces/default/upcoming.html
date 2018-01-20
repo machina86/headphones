@@ -1,6 +1,9 @@
 <%inherit file="base.html" />
 
 <%def name="headerIncludes()">
+	<div id="paddingheader">
+		<h1 class="clearfix"><i class="fa fa-heart"></i> Wanted Albums</h1>
+	</div>
 	<div id="subhead_container">
 		<div id="subhead_menu">
 			<a href="javascript:void(0)" id="menu_link_scan" onclick="doAjaxCall('forceSearch',$(this))" data-success="Checking for wanted albums successful" data-error="Error checking wanted albums"><i class="fa fa-search"></i> Force Check</a>
@@ -10,9 +13,6 @@
 
 
 <%def name="body()">
-	<div id="paddingheader">
-		<h1 class="clearfix"><i class="fa fa-heart"></i> Wanted Albums</h1>
-	</div>
 	<form action="markAlbums" method="get" id="markAlbums">
 	<div id="markalbum" style="top:0;">
 		Mark selected albums as
